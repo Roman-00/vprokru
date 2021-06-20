@@ -1,19 +1,32 @@
 <template>
-  <modal
-    title="Modal with form + Validate"
-    @close="$emit('close')">
+  <modal title="Modal with form + Validate" @close="$emit('close')">
     <!-- body -->
     <slot name="body">
       <form @submit.prevent="onSubmit">
+        <!-- name -->
+        <div class="form-item" :class="{ errorInput: $v.name.$error }">
+          <label>Name:</label>
+          <p class="errorText" v-if="!$v.name.required">Filed is required!</p>
+          <p class="errorText" v-if="!$v.name.minLength">
+            Name must have at least {{ $v.name.$params.minLength.min }} !
+          </p>
+          <input
+            v-model="name"
+            :class="{ error: $v.name.$error }"
+            @change="$v.name.$touch()"
+          />
+        </div>
+
         <!-- email -->
         <div class="form-item" :class="{ errorInput: $v.email.$error }">
           <label>Email:</label>
-          <p class="errorText" v-if="!$v.email.required"> Filed is required! </p>
-          <p class="errorText" v-if="!$v.email.email"> Email is not correct!</p>
+          <p class="errorText" v-if="!$v.email.required">Filed is required!</p>
+          <p class="errorText" v-if="!$v.email.email">Email is not correct!</p>
           <input
             v-model="email"
             :class="{ error: $v.email.$error }"
-            @change="$v.email.$touch()">
+            @change="$v.email.$touch()"
+          />
         </div>
         <!-- button -->
         <button class="btn btnPrimary">Submit!</button>
@@ -23,42 +36,46 @@
 </template>
 
 <script>
-import { required, email } from "vuelidate";
+import { required, minLength, email } from "vuelidate/lib/validators";
 import modal from "./UI/Modal.vue";
 
 export default {
   components: { modal },
-  data () {
+  data() {
     return {
-      name: '',
-      email: ''
-    }
+      name: "",
+      email: "",
+    };
   },
   validations: {
+    name: {
+      required,
+      minLength: minLength(4),
+    },
     email: {
       required,
-      email
-    }
+      email,
+    },
   },
   methods: {
-    onSubmit () {
-      this.$v.$touch()
+    onSubmit() {
+      this.$v.$touch();
       if (!this.$v.$invalid) {
         const user = {
           name: this.name,
-          email: this.email
-        }
-        console.log(user)
+          email: this.email,
+        };
+        console.log(user);
 
         // DONE!
-        this.name = ''
-        this.email = ''
-        this.$v.$reset()
-        this.$emit('close')
+        this.name = "";
+        this.email = "";
+        this.$v.$reset();
+        this.$emit("close");
       }
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss">
@@ -76,5 +93,4 @@ export default {
 input.error {
   border-color: #de4040;
 }
-
 </style>
