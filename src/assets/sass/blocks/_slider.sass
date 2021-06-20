@@ -1,0 +1,68 @@
+.slider
+    display: flex
+    transition: all ease .5s
+    &__container
+        position: relative
+        button
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            outline: none
+            cursor: pointer
+            background: transparent
+            border: none
+    &__button
+        &--next
+            right: 5%
+        &--prev
+            left: 5%
+    &__wrapper
+        max-width: 640px
+        margin: 0 auto
+        overflow: hidden
+    &__item
+        min-width: 640px
+        height: auto
+        padding: 40px
+        background-color: $white
+        &--cover
+            position: relative
+            overflow: hidden
+        &--img
+            width: 100%
+            height: auto
+        &--count
+            position: absolute
+            top: -10px
+            left: -10px
+            display: flex
+            align-items: center
+            justify-content: center
+            width: 50px
+            height: 50px
+            font-family: 'Rotonda Bold', sans-serif
+            font-weight: bold
+            font-size: 22px
+            line-height: 46px
+            color: $second
+            border-radius: 100px
+            background-color: $white
+            z-index: 99
+        &--info
+            display: flex
+            flex-direction: column
+            align-items: center
+            max-width: 500px
+            margin: 28px auto auto
+            &-title
+                font-family: 'Rotonda Bold';
+                font-size: 16px
+                line-height: 24px
+                color: $primary
+            &-desc
+                display: block
+                font-family: 'Rotonda Regular';
+                font-size: 16px
+                line-height: 24px
+                text-align: center
+                color: $primary

@@ -1,0 +1,63 @@
+.offer
+    position: relative
+    margin-bottom: 0
+    padding: 60px 0 100px
+    background: url('../images/offer-bg.png') center no-repeat
+    &__block
+        position: relative
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding-left: 20px
+        padding-right: 20px
+        &::before
+            content: '+'
+            position: absolute
+            top: 50%
+            left: 0
+            right: 0
+            transform: translateY(-50%)
+            font-family: 'Rotonda Bold', sans-serif
+            font-weight: bold
+            font-size: 36px
+            line-height: 46px
+            color: $primary
+            text-align: center
+        &--item
+            display: grid
+            grid-template-columns: 70px 250px;
+            -moz-column-gap: 30px;
+            column-gap: 30px;
+            min-height: 218px
+            padding: 30px 10px 30px 30px
+            border: 1px solid #D0D4CD;
+        &--title
+            font-family: 'Rotonda Bold', sans-serif
+            font-weight: bold
+            font-size: 36px
+            line-height: 46px
+            color: $primary
+            span
+                display: block
+                color: $second
+        &--text
+            display: block
+            max-width: 250px
+            margin-top: 12px
+            font-family: 'Rotonda Regular', sans-serif
+            font-weight: normal
+            font-size: 16px
+            line-height: 24px
+            color: $primary
+        &--circle
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 70px
+            height: 70px
+            background-color: $second
+            border-radius: 100px
+    &__modal
+        &--button
+           display: block
+           margin: 50px auto auto auto

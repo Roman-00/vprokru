@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Rotonda Regular';
+    src:
+        url('./assets/fonts/RotondaC.woff') format('woff'),
+        url('./assets/fonts/RotondaC.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotonda Bold';
+    src:
+        url('./assets/fonts/RotondaC-Bold.woff') format('woff'),
+        url('./assets/fonts/RotondaC-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

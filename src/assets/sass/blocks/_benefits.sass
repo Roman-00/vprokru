@@ -1,0 +1,45 @@
+.benefits
+    position: relative
+    &__block
+        display: grid
+        grid-template: repeat(2, minmax(390px, auto)) / repeat(3, 285px)
+        grid-auto-rows: minmax(390px, auto)
+        gap: 30px
+        margin-top: 40px
+        &--item
+            position: relative
+            padding: 25px 18px
+            max-width: 285px
+            height: 390px
+            background-color: $white
+            box-shadow: 0px 0px 37px rgba(230, 231, 235, 0.09)
+            border-radius: 10px
+            &-info
+                display: flex
+                flex-direction: column
+                align-items: center
+            &-title
+                height: 35px
+                margin: 30px 0
+                font-family: 'Rotonda Bold';
+                font-weight: bold
+                font-size: 16px
+                line-height: 24px
+                text-align: center
+                color: $primary
+            &-desc
+                display: block
+                font-family: 'Rotonda Regular';
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 24px;
+                text-align: center
+            &-cover
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 100px
+                height: 100px
+.benefits__block--item:first-child
+    .benefits__block--item-title
+        max-width: 215px
