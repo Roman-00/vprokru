@@ -28,6 +28,7 @@
     "node-sass": "^4.12.0",
     "prettier": "^2.2.1",
     "sass-loader": "^8.0.2",
+    "vee-validate": "^4.4.5",
     "vuelidate": "^0.7.6"
   }
 }

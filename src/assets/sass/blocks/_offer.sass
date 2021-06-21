@@ -58,6 +58,31 @@
             background-color: $second
             border-radius: 100px
     &__modal
+        &--form
+            &-group
+                display: flex
+                flex-direction: column
+                label
+                    margin: 5px 0
+                    font-family: 'Rotonda Bold', sans-serif
+                    font-weight: normal
+                    font-size: 14px
+                    text-align: left
+                input
+                    margin-bottom: 15px
+                    padding: 10px 10px
+                    font-family: 'Rotonda Regular', sans-serif
+                    font-weight: normal
+                    font-size: 16px
+                    border: 1px solid $border-input
+                    border-radius: 10px
+            &-button
+                display: flex
+                align-items: center
+                justify-content: center
+                min-width: 180px
+                height: 50px
+                margin: auto
         &--button
            display: block
            margin: 50px auto auto auto

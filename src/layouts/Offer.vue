@@ -16,7 +16,23 @@
       >
         <!-- body -->
         <slot name="body">
-          Hello World
+          <form @submit="postData" method="post" class="offer__modal--form" novalidate="true">
+            <div class="offer__modal--form-group">
+              <label for="email">Введитее email:</label>
+              <input type="email" name="email" id="email" v-model="modalSecond.email" />
+              <div v-if="modalSecond.emailError.length">
+                <p v-for="err in modalSecond.emailError" :key="err.index" class="offer__modal--form-error">
+                    {{ err }}
+                </p>
+              </div>
+            </div>
+            <button class="button offer__modal--form-button" type="submit">отправить</button>
+            <div v-if="modalSecond.succes.length">
+              <p v-for="succes in modalSecond.succes" :key="succes.index">
+                {{ succes }}
+              </p>
+            </div>
+          </form>
         </slot>
       </modals>
     </div>
@@ -26,6 +42,7 @@
 <script>
 import OfferItems from "../components/OfferItems.vue";
 import modals from "../components/Modal.vue";
+import axios from "axios";
 
 export default {
   components: {
@@ -56,8 +73,45 @@ export default {
       ],
       modalSecond: {
         show: false,
+        email: null,
+        succes: [],
+        emailError: [],
       },
     };
+  },
+  methods: {
+    postData(e) {
+      /*-- Валидация  --*/
+      if(!this.modalSecond.email){
+        this.modalSecond.emailError.push('Укажите электронную почту.')
+      } else if (!this.validEmail(this.email)) {
+        this.modalSecond.emailError.push('Укажите корректный адрес электронной почты.');
+      }
+      /*-- Валидация  --*/
+      console.warn(this.modalSecond);
+      axios
+        .post(
+          "https://vue-test-98b46-default-rtdb.firebaseio.com/data.json",
+          this.modalSecond
+        )
+        .then((result) => {
+          if (result.status == 200) {
+            this.modalSecond.succes.push("Спасибо:), Мы с вами свяжемся");
+            this.modalSecond.email = null;
+          }
+          console.log("data", result);
+        })
+        .catch((err) => console.log(err));
+
+      if(!this.modalSecond.emailError.length) {
+        return true;
+      }
+      e.preventDefault();
+    },
+    validEmail: function(email) {
+      let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
   },
 };
 </script>
