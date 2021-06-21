@@ -14,4 +14,8 @@
         width: 150px
         img
             width: 100%
+@media (max-width: 575px)
+    .header
+        &__logo
+            margin: auto
 </style>

@@ -9,12 +9,14 @@
         />
       </div>
     </div>
-    <button @click="prevSlide" class="slider__button--prev">
+    <div class="slider__button--container">
+      <button @click="prevSlide" class="slider__button--prev">
       <img src="../assets/arrow-l.svg" alt="Arow Prev">
-    </button>
-    <button @click="nextSlide" class="slider__button--next">
-      <img src="../assets/arrow-r.svg" alt="Arow Next">
-    </button>
+      </button>
+      <button @click="nextSlide" class="slider__button--next">
+        <img src="../assets/arrow-r.svg" alt="Arow Next">
+      </button>
+    </div>
   </div>
   
 </template>

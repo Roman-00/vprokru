@@ -1,0 +1,36 @@
+.footer
+    position: relative
+    padding: 50px 0 80px 0
+    background: url('../images/footer-bg.png') center no-repeat
+    &__info
+        display: grid
+        grid-template-columns: 400px 230px
+        justify-content: space-between
+        align-items: center
+    &__contacts
+        display: grid
+        grid-template-columns: repeat(2, 185px)
+        gap: 40px
+        margin-top: 15px
+        &--item 
+            color: $white
+            span
+                display: block
+                font-family: 'Rotonda Regular', sans-serif
+                font-weight: normal
+                font-size: 14px
+                line-height: 36px
+                
+            a   
+                display: block
+                font-family: 'Rotonda Bold', sans-serif
+                font-weight: bold
+                font-size: 22px
+                line-height: 36px
+                text-decoration: none
+                color: $white
+    &__social
+        display: flex
+        justify-content: space-between
+        align-items: center
+        max-width: 

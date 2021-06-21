@@ -1,0 +1,161 @@
+@media (max-width: 1024px)
+    section
+        margin-bottom: 60px
+    .hero
+        min-height: 465px
+        padding: 60px 0 30px 0
+        background-size: cover
+        .title
+            margin-top: 85px
+            font-size: 40px
+            line-height: 44px
+        &__description
+            max-width: 375px;
+            margin-bottom: 40px
+            font-size: 20px
+            line-height: 32px
+@media (max-width: 920px)
+    .container
+        padding: 0 10px
+    .benefits
+        &__block
+            grid-template: repeat(3, minmax(390px, auto))/repeat(2, 285px);
+            justify-content: center
+    .offer
+        background-size: cover
+        &__block
+            flex-direction: column
+            &--item:first-child
+                margin-bottom: 30px
+            &--item:last-of-type
+                margin-top: 30px
+    .slider
+        &__container 
+            button
+                position: static
+                transform: none
+        &__button
+            &--container
+                display: flex
+                justify-content: center
+                margin-top: 30px
+            &--prev
+                margin-right: 40px
+            &--next
+                margin-left: 40px
+@media (max-width: 675px)
+    .slider
+        &__wrapper
+            max-width: 540px
+        &__item
+            min-width: 540px
+    .footer
+        padding: 50px 0 50px 0;
+        background-size: cover
+        &__info
+            grid-template-rows: 2
+            grid-template-columns: 1fr
+        &__social
+            margin-top: 15px
+            justify-content: start
+            &--item
+                margin-right: 40px
+@media (max-width: 575px)
+    .container
+        max-width: 320px
+    section
+        margin-bottom: 40px
+    .hero 
+        min-height: 360px
+        padding: 40px 0 60px 0
+        .title
+            margin-top: 70px
+            margin-bottom: 25px
+            font-size: 28px
+            line-height: 36px
+            text-align: center
+        &__description
+            max-width: 270px
+            margin: auto
+            font-size: 16px
+            line-height: 22px
+            text-align: center
+        &__swipe
+            display: none
+    .benefits
+        &__block
+            grid-template: repeat(3, minmax(175px, auto))/repeat(2, 146px)
+            &--item
+                height: auto
+                &-cover
+                    width: 40px
+                    height: 40px
+                &-title,&-desc
+                    height: 100%
+                    font-size: 8px
+                    line-height: 11px
+                &-title
+                    margin: 9px 0 10px
+    .benefits__block--item:first-child
+    .benefits__block--item-title
+        max-width: 105px !important
+    .slider
+        &__wrapper
+            max-width: 280px
+            height: 350px
+        &__item
+            min-width: 280px
+            padding: 20px
+            &--info
+                &-title, &-desc
+                    font-size: 14px
+                    line-height: 22px
+                    text-align: center
+    .offer
+        &__block
+            &--item
+                grid-template-columns: 1fr
+                padding: 30px
+            &--item:first-child
+                margin-bottom: 20px
+            &--item:last-of-type
+                margin-top: 30px
+            &--circle
+                width: 60px
+                height: 60px
+                margin: auto
+            &--title
+                font-size: 30px
+                line-height: 30px
+                text-align: center
+                span
+                    display: inline-block
+                    margin-left: 5px
+            &--text
+                margin-top: 5px
+                font-size: 14px
+                line-height: 22px
+                text-align: center
+    .button
+        width: 280px
+        padding: 16px 80px
+        font-size: 22px
+        line-height: 36px
+        letter-spacing: 0.01em
+    .footer
+        padding: 40px 0
+        &__contacts
+            grid-template-columns: 1fr
+            gap: 4px
+            &--item
+                span
+                    font-size: 14px
+                    line-height: 36px
+                a
+                    font-size: 22px
+                    line-height: 36px
+        &__social
+            display: flex
+            justify-content: space-between
+            &--item
+                margin-right: 0

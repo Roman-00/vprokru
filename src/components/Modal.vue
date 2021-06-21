@@ -7,7 +7,9 @@
           <span class="button-close" @click="$emit('close')">×</span>
         </div>
         <div class="modal-body">
-          <slot name="body">default body</slot>
+          <slot>
+            
+          </slot>
         </div>
       </div>
     </div>
@@ -94,6 +96,11 @@ export default {
   text-align: center;
 }
 
-
+.modal-title {
+  font-family: 'Rotonda Bold';
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 16px;
+}
 
 </style>

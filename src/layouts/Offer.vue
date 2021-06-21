@@ -1,21 +1,36 @@
 <template>
   <section class="offer">
     <div class="container">
-      <OfferItems :offer_data="offerItems"/>
-      <!-- modal with validate -->
-      <button class="btn btnPrimary" @click="modalValidate = !modalValidate">К покупкам</button>
-      <modalValidate v-show="modalValidate" @close="modalValidate = false"/>
+      <OfferItems :offer_data="offerItems" />
+      <button
+        class="button offer__modal--button"
+        @click="modalSecond.show = !modalSecond.show"
+      >
+        К покупкам
+      </button>
+      <!-- first modal -->
+      <modals
+        title="Оставить заявку"
+        v-show="modalSecond.show"
+        @close="modalSecond.show = false"
+      >
+        <!-- body -->
+        <slot name="body">
+          Hello World
+        </slot>
+      </modals>
     </div>
   </section>
 </template>
 
 <script>
 import OfferItems from "../components/OfferItems.vue";
-import modalValidate from "../components/ModalValidate.vue";
+import modals from "../components/Modal.vue";
 
 export default {
   components: {
-    OfferItems, modalValidate
+    OfferItems,
+    modals,
   },
   data() {
     return {
@@ -27,7 +42,7 @@ export default {
           textb: "–500 ₽",
           text: "на первые три заказа по промокоду NEW",
           images: "https://i-shop.iteca.kz/images/icon/sale.svg",
-          alt: "Скидка 1500 ₽"
+          alt: "Скидка 1500 ₽",
         },
         {
           id: 2,
@@ -36,22 +51,13 @@ export default {
           textb: "",
           text: "первого заказа",
           images: "https://i-shop.iteca.kz/images/icon/free.svg",
-          alt: "Бесплатная доставка"
+          alt: "Бесплатная доставка",
         },
       ],
-      modalValidate: false
+      modalSecond: {
+        show: false,
+      },
     };
   },
-  methods: {
-    submitSecondForm () {
-      console.log({
-        name: this.modalSecond.name,
-        email: this.modalSecond.email
-      })
-      this.modalSecond.name = ''
-      this.modalSecond.email = ''
-      this.modalSecond.show = false
-    }
-  }
 };
 </script>

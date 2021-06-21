@@ -19,4 +19,12 @@ export default {
         line-height: 46px
         text-align: center
         color: #26303B
+@media (max-width: 1024px)
+  .title__second
+    line-height: 60px
+@media (max-width: 575px)
+  .title
+    &__second
+      font-size: 26px
+      line-height: 32px
 </style>
