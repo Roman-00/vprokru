@@ -16,7 +16,7 @@
       >
         <!-- body -->
         <slot name="body">
-          <form @submit="postData" method="post" class="offer__modal--form" novalidate="true">
+          <form @submit.prevent="postData" class="offer__modal--form" novalidate="true">
             <div class="offer__modal--form-group">
               <label for="email">Введитее email:</label>
               <input type="email" name="email" id="email" v-model="modalSecond.email" />
@@ -83,9 +83,8 @@ export default {
     postData(e) {
       /*-- Валидация  --*/
       if(!this.modalSecond.email){
-        this.modalSecond.emailError.push('Укажите электронную почту.')
-      } else if (!this.validEmail(this.email)) {
-        this.modalSecond.emailError.push('Укажите корректный адрес электронной почты.');
+        this.modalSecond.emailError.push('Укажите электронную почту.');
+        return
       }
       /*-- Валидация  --*/
       console.warn(this.modalSecond);
@@ -108,10 +107,6 @@ export default {
       }
       e.preventDefault();
     },
-    validEmail: function(email) {
-      let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
-    }
   },
 };
 </script>
